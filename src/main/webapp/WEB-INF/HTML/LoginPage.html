@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 페이지</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .head {
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 400px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+            margin: auto;
+            margin-top: 150px;
+        }
+
+        .container h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #003366;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .container input[type="text"],
+        .container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .container input[type="submit"] {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .container input[type="submit"]:hover {
+            background-color: #002244;
+        }
+
+        .footer {
+            width: 100%;
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            color: #003366;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        학사관리 페이지
+    </div>
+
+    <div class="container">
+        <h2>로그인</h2>
+        <form>
+            <input type="text" placeholder="아이디" required>
+            <input type="password" placeholder="비밀번호" required>
+            <input type="submit" value="로그인">
+        </form>
+        <div class="links">
+            <a href="#">아이디/비밀번호 찾기</a> 
+            <!--| <a href="#">회원가입</a>-->
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 솔데스크 학사 관리 시스템
+    </div>
+</body>
+
+</html>
+
+
+
+
