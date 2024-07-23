@@ -1,0 +1,20 @@
+ALTER SESSION SET "_ORACLE_SCRIPT"=true;
+
+create user soldesk IDENTIFIED By 12345;
+grant connect, resource to soldesk;
+grant create view, create sequence, create procedure to soldesk;
+ALTER USER soldesk DEFAULT TABLESPACE USERS QUOTA UNLIMITED ON USERS;
+
+--학생 테이블
+drop table student;
+create table student(
+    
+    idx number primary key,     --학생번호
+    name VARCHAR2(20) not null, --이름
+    birth date,                 --생년월일
+	email varchar2(20),         --이메일
+	phone varchar2(20),         --전화번호
+	department varchar2(100),   --과정
+	position varchar2(20),      --직책
+    team_id number              --팀 번호
+);

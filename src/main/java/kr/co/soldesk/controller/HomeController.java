@@ -14,7 +14,7 @@ public class HomeController {
 
 		System.out.println("메인페이지");
 		
-		return "/MainPage";
+		return "redirect:/main";
 	}
 }
 

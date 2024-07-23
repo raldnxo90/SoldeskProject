@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var='root' value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
@@ -230,8 +229,8 @@ h2 {
 		<ul>
 			<li><a href="#">학생관리</a>
 				<ul>
-					<li><a href="member/register">학생 등록</a></li>
-					<li><a href="member/list">학생 목록</a></li>
+					<li><a href="student/register">학생 등록</a></li>
+					<li><a href="student/list">학생 목록</a></li>
 				</ul></li>
 			<li><a href="#">교육관리</a>
 				<ul>
