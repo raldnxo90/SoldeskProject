@@ -1,188 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:set var="root" value="${pageContext.request.contextPath }/" />
+
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>학생 관리 페이지</title>
-	<style>
-		body {
-			margin: 0;
-			font-family: Arial, sans-serif;
-			display: flex;
-			flex-direction: column;
-			height: 100vh;
-			background-color: #f0f0f0;
-		}
-
-		.head {
-			width: 100%;
-			height: 100px;
-			text-align: center;
-			background-color: #003366;
-			color: white;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			font-size: 24px;
-			position: fixed;
-			top: 0;
-			left: 0;
-			z-index: 1000;
-		}
-
-		.nav {
-			width: 100%;
-			background-color: white;
-			display: flex;
-			align-items: center;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			position: fixed;
-			top: 100px;
-			left: 0;
-			z-index: 1000;
-		}
-
-		.nav>ul {
-			display: flex;
-			padding: 0;
-			margin: 0;
-			list-style: none;
-			width: 100%;
-			justify-content: center;
-		}
-
-		.nav>ul li {
-			position: relative;
-		}
-
-		.nav>ul li>a {
-			display: block;
-			padding: 15px 30px;
-			text-decoration: none;
-			color: #003366;
-			font-weight: bold;
-		}
-
-		.nav>ul li>a:hover {
-			background-color: #003366;
-			color: white;
-		}
-
-		.nav>ul li ul {
-			display: none;
-			position: absolute;
-			top: 50px;
-			left: 0;
-			background-color: white;
-			padding: 0;
-			margin: 0;
-			list-style: none;
-			border: 1px solid #ddd;
-			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-			z-index: 1000;
-		}
-
-		.nav>ul li:hover ul {
-			display: block;
-		}
-
-		.nav>ul li ul li {
-			width: 200px;
-		}
-
-		.nav>ul li ul li a {
-			display: block;
-			padding: 10px;
-			text-decoration: none;
-			color: #003366;
-			font-weight: normal;
-		}
-
-		.nav>ul li ul li a:hover {
-			background-color: #ddd;
-		}
-
-		.container {
-			width: 90%;
-			max-width: 1200px;
-			padding: 20px;
-			background-color: white;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			border-radius: 5px;
-			text-align: center;
-			margin: auto;
-			margin-top: 200px;
-		}
-
-		.container h2 {
-			margin-top: 0;
-			font-size: 24px;
-			color: #003366;
-		}
-
-		.container select,
-		.container input {
-			width: 100%;
-			padding: 10px;
-			border: 1px solid #ddd;
-			border-radius: 5px;
-			box-sizing: border-box;
-			margin-bottom: 20px;
-		}
-
-		.student-list {
-			width: 100%;
-			border-collapse: collapse;
-			margin-top: 20px;
-		}
-
-		.student-list th,
-		.student-list td {
-			border: 1px solid #ddd;
-			padding: 8px;
-		}
-
-		.student-list th {
-			background-color: #003366;
-			color: white;
-			cursor: pointer;
-		}
-
-		.student-photo {
-			width: 80px;
-			height: 80px;
-			object-fit: cover;
-			border-radius: 50%;
-		}
-
-		.footer {
-			width: 100%;
-			height: 50px;
-			background-color: #003366;
-			color: white;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			font-size: 18px;
-			position: fixed;
-			bottom: 0;
-			left: 0;
-		}
-
-		.edit-button {
-			padding: 5px 10px;
-			background-color: #007BFF;
-			color: white;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-
-		.edit-button:hover {
-			background-color: #0056b3;
-		}
-	</style>
-	<script>
+<meta charset="UTF-8">
+<title>학생 관리 페이지</title>
+<link href="${root }css/student.css" rel="stylesheet">
+<style type="text/css">
+	.container {
+		width: 90%;
+		max-width: 1200px;
+		padding: 20px;
+		background-color: white;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		border-radius: 5px;
+		text-align: center;
+		margin: auto;
+		margin-top: 200px;
+	}
+</style>
+<script>
 		let students = {
 			"class1": [
 				{"status": "수료중", "name": "구유진", "gender": "여성", "birthdate": "1989-01-01", "email": "ku@soldesk.com", "phone": "010-1234-5678", "photo": "감자 (1).png", "team": "마루", "position": "팀장"},
@@ -253,44 +94,19 @@
 </head>
 
 <body>
-	<div class="head">
-		학사관리 페이지
-	</div>
-
-	<div class="nav">
-		<ul>
-			<li>
-				<a href="#">학생관리</a>
-				<ul>
-					<li><a href="#">학생 등록</a></li>
-					<li><a href="#">학생 목록</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="#">교육관리</a>
-				<ul>
-					<li><a href="#">수업 계획</a></li>
-					<li><a href="#">수업 일정</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="#">상담관리</a>
-				<ul>
-					<li><a href="#">상담 예약</a></li>
-					<li><a href="#">상담 기록</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
+	<!-- 상단 메뉴바 -->
+	<c:import url="/WEB-INF/views/include/top.jsp" />
 
 	<div class="container">
 		<h2>학생 관리</h2>
 		<select id="class-select" onchange="showStudents(this.value)" required>
 			<option value="" disabled selected>반 선택</option>
-			<option value="class1">그래픽 기반 실시간 AI서비스를 활용한 cross-platform 개발자 양성과정 12회차 801호 김우태(김진우)</option>
-			<option value="class2">그래픽 기반 실시간 AI서비스를 활용한 cross-platform 개발자 양성과정 13회차 903호 정세나(고은비)</option>
-		</select>
-		<input type="text" id="filter" class="filter" onkeyup="filterStudents()" placeholder="팀 또는 이름으로 검색...">
+			<option value="class1">그래픽 기반 실시간 AI서비스를 활용한 cross-platform
+				개발자 양성과정 12회차 801호 김우태(김진우)</option>
+			<option value="class2">그래픽 기반 실시간 AI서비스를 활용한 cross-platform
+				개발자 양성과정 13회차 903호 정세나(고은비)</option>
+		</select> <input type="text" id="filter" class="filter"
+			onkeyup="filterStudents()" placeholder="팀 또는 이름으로 검색...">
 		<table class="student-list">
 			<thead>
 				<tr>
@@ -311,9 +127,7 @@
 		</table>
 	</div>
 
-	<div class="footer">
-		&copy; 솔데스크 학사 관리 시스템
-	</div>
+	<div class="footer">&copy; 솔데스크 학사 관리 시스템</div>
 </body>
 
 </html>

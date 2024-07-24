@@ -63,9 +63,8 @@ public class ServletAppContext implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		// 정적 파일의 경로를 매핑
-
+	//정적 파일 경로 매핑
 		WebMvcConfigurer.super.addResourceHandlers(registry);
-		registry.addResourceHandler("/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/**").addResourceLocations("/WEB-INF/resources/");
 	}
 }
