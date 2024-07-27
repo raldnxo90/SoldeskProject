@@ -237,3 +237,9 @@ label {
 .edit-button:hover {
 	background-color: #0056b3;
 }
+
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    gap: 5px; /* 각 라디오 버튼 사이의 간격을 조절 */
+}

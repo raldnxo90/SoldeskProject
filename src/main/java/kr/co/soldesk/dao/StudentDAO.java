@@ -20,12 +20,12 @@ public class StudentDAO {
 		
 		studentMapper.addStudent(studentBean);
 	}
-	
+	/*
 	//과정목록
 	public List<Department> listDepartment() {
 		
 		return studentMapper.listDepartment();
-	}
+	}*/
 	//학생목록
 	public List<Student> listStudent(){
 		
@@ -36,6 +36,16 @@ public class StudentDAO {
 		
 		return studentMapper.infoStudent(student_idx);
 		
+	}
+	//학생수정
+	public void modifyStudent(Student modifyStudent) {
+		
+		studentMapper.modifyStudent(modifyStudent);
+		System.out.println("DAO");
+		System.out.println(modifyStudent.getStudent_idx());
+		System.out.println(modifyStudent.getStudent_position());
+		System.out.println(modifyStudent.getStudent_status());
+		System.out.println("-------------------------------");
 	}
 	
 }

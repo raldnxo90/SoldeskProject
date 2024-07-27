@@ -90,6 +90,9 @@
 			</div>
 		</div>
 	</div>
+	
+
+	
 	<div class="footer">&copy; 솔데스크 학사 관리 시스템</div>
 
 

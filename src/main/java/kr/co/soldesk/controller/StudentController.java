@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +17,7 @@ import com.google.gson.Gson;
 
 import kr.co.soldesk.beans.Department;
 import kr.co.soldesk.beans.Student;
+import kr.co.soldesk.service.DepartmentService;
 import kr.co.soldesk.service.StudentService;
 
 @Controller
@@ -24,6 +26,9 @@ public class StudentController {
 	
 	@Autowired
 	private StudentService studentService;
+	
+	@Autowired
+	private DepartmentService departmentService;
 
 	@GetMapping("/register")
 	private String register(@ModelAttribute Student student) {
@@ -45,26 +50,50 @@ public class StudentController {
 	@GetMapping("/information")
 	private String information(@RequestParam("std")int studentIdx, Model model) {
 		
-		System.out.println(studentIdx + "번, 학생 소개 페이지");
+		
+
+		System.out.println(studentIdx + "번, 학생 상세 페이지");
 		Student std = studentService.infoStudent(studentIdx);
+		
+		String departmentName = departmentService.nameDepartment(std.getDepartment_idx());
+		
 		model.addAttribute("std", std);
+		model.addAttribute("departmentName", departmentName);
 		
 		return "Student/InformationPage";
+	}
+	
+	@GetMapping("/modify")
+	private String modify(@RequestParam("std") int studentIdx, Model model) {
+		
+		System.out.println(studentIdx + "번 학생 수정 페이지");
+		Student modifyStudent = studentService.infoStudent(studentIdx);
+		model.addAttribute("modifyStudent", modifyStudent);
+		
+		return "Student/ModifyPage";
+	}
+	
+	@PostMapping("/modify_pro")
+	private String modify_pro(@ModelAttribute("modifyStudent") Student modifyStudent) {
+		
+		System.out.println(modifyStudent.getStudent_status());
+		System.out.println(modifyStudent.getStudent_email());
+		System.out.println(modifyStudent.getStudent_phone());
+		System.out.println(modifyStudent.getStudent_team());
+		System.out.println(modifyStudent.getStudent_position());
+		
+		studentService.modifyStudent(modifyStudent);
+		
+		return "Student/Modify_successPage";
+		
 	}
 	
 	@GetMapping("/list")
 	private String list(Model model) {
 		
-		List<Department> departmentlist = studentService.listDepartment();
+		List<Department> departmentlist = departmentService.listDepartment();
 		model.addAttribute("departList", departmentlist);	
-		/*
-		List<Student> studentList = studentService.listStudent();
-		model.addAttribute("stdList", studentList);	
-		
-		for(Department depart : departmentlist) {
-			System.out.println(depart.getDepartment_name());
-		}*/
-		
+
         List<Student> studentList = studentService.listStudent();
         Gson gson = new Gson();
         String studentListJson = gson.toJson(studentList);

@@ -4,13 +4,14 @@ import java.sql.Date;
 
 public class Department {
 //과정
-	private int department_idx;		//과정 기본키
-	private String department_name;	//과정명
-	private Date department_date;	//과정 개설일
-	private String department_status;//상태
+	private int department_idx;			//과정 기본키
+	private String department_name;		//과정명
+	private Date department_date;		//과정 개설일
+	private String department_status;	//상태
 	
-	private int instructor_idx;		//강사
-	private int mentor_idx;			//부담임
+	private int instructor_idx;			//강사
+	private int mentor_idx;				//부담임
+	
 	
 	public int getDepartment_idx() {
 		return department_idx;

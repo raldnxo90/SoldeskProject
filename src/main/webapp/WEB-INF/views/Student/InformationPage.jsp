@@ -208,7 +208,7 @@
 
 	<div class="container">
 		<div class="student-info-class">
-			<h2>그래픽 기반 실시간 AI서비스를 활용한 cross-platform 개발자 양성과정 12회차 801호 김우태(김진우)</h2>
+			<h2>${departmentName }</h2>
 		</div>
 
 		<div class="student-info-header">
@@ -260,7 +260,7 @@
 
 		<div class="buttons">
 			<a href="#">상담 등록</a>
-			<a href="#">학생 수정</a>
+			<a href="${root }student/modify?std=${std.student_idx}">학생 수정</a>
 			<a href="#">학생 목록</a>
 		</div>
 	</div>

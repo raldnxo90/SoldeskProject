@@ -36,9 +36,8 @@
             $.each(students, function(index, student) {
                 if (student.department_idx == departmentId) {
                     let $row = $('<tr>');
+                    $row.attr('data-team', student.team ? student.team.toLowerCase() : '미정');
                     $row.attr('data-name', student.student_name.toLowerCase());
-                    $row.attr('data-team', student.team ? student.team.toLowerCase() : '');
-                    //$row.attr('data-position', student.student_position.toUpperCase());
                     $row.html('<td>' + student.student_status + '</td>' +
                               '<td><img src="' + root + 'image/' + student.student_photo + '" alt="학생 사진" class="student-photo"></td>' +
                               '<td><a href="' + root + 'student/information?std=' + student.student_idx + '">' + student.student_name + '</a></td>' +
@@ -47,13 +46,12 @@
                               '<td>' + student.student_gender + '</td>' +
                               '<td>' + student.student_birth + '</td>' +
                               '<td>' + student.student_email + '</td>' +
-                              '<td>' + student.student_phone + '</td>' +
-                              '<td><button class="edit-button">수정</button></td>');
+                              '<td>' + student.student_phone + '</td>' );
                     $table.append($row);
                 }
             });
         }
-
+        
         $('#class-select').change(function() {
             showStudents($(this).val());
         });
@@ -86,7 +84,6 @@
 					<th>생년월일</th>
 					<th>이메일</th>
 					<th>전화번호</th>
-					<th>수정</th>
 				</tr>
 			</thead>
 			<tbody id="student-list-body">

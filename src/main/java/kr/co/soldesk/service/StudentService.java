@@ -31,12 +31,12 @@ public class StudentService {
 		*/
 		studentDAO.addStudent(studentBean);
 	}
-	
+	/*
 	//과정목록
 	public List<Department> listDepartment() {
 		
 		return studentDAO.listDepartment();
-	}
+	}*/
 	
 	//학생목록
 	public List<Student> listStudent(){
@@ -49,5 +49,11 @@ public class StudentService {
 		
 		return studentDAO.infoStudent(student_idx);
 	}
-
+	//학생수정
+	public void modifyStudent(Student modifyStudent) {
+		
+		studentDAO.modifyStudent(modifyStudent);
+	}
+	
+	
 }
