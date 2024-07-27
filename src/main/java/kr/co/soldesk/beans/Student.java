@@ -18,7 +18,6 @@ public class Student {
 	private String student_photo;		//학생사진
 	
 	private int department_idx;			//과정번호
-	
 
 	public int getStudent_idx() {
 		return student_idx;
@@ -124,9 +123,6 @@ public class Student {
 		this.department_idx = department_idx;
 	}
 	
-	
-	
-
 	
 	
 }

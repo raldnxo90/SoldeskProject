@@ -63,9 +63,13 @@
 			    console.log(departments);
 			</script>
  			
-<%--        흐어어어어어 왜 안 돼?!!?#?@?#?!@#?#@#?!?@
 			<form:label path="department_idx">강의 선택</form:label>
-            <form:select path="department_idx" required="required">
+			<form:select path="department_idx" required="required">
+				<c:forEach var="depart" items="${departments }">
+					<form:option value="${depart.department_idx}">${depart.department_name}</form:option>
+				</c:forEach>
+			</form:select>
+            <%-- <form:select path="department_idx" required="required">
                 <form:option value="" label="강의 선택" disabled="disabled" selected="selected"/>
                  
 				<c:forEach var="depart" items="${departments}" >
