@@ -3,102 +3,129 @@ package kr.co.soldesk.beans;
 import java.sql.Date;
 
 public class Student {
+
+	private int student_idx;			//학생기본키
+	private String student_name;		//학생이름
+	private String student_gender;		//학생성별
+	private Date student_birth;			//학생생년월일
+	private String student_email;		//학생이메일
+	private String student_phone;		//학생연락처
+	private String student_team;		//학생 팀
+	private String student_position;	//학생직책
+	private String student_education;	//학생학력
+	private String student_major;		//학생전공여부
+	private String student_status;		//학생상태
+	private String student_photo;		//학생사진
 	
-	private int idx;//학생번호
-	private String name;//학생이름
-	private String gender;//학생성별
-	//private String birth;//학생생년월일
-	private Date birth;//학생생년월일
-	private String email;//학생이메일
-	private String phone;//학생전화번호
-	private String department;//과정
-	private String position;//직책
+	private int department_idx;			//과정번호
+
+	public int getStudent_idx() {
+		return student_idx;
+	}
+
+	public void setStudent_idx(int student_idx) {
+		this.student_idx = student_idx;
+	}
+
+	public String getStudent_name() {
+		return student_name;
+	}
+
+	public void setStudent_name(String student_name) {
+		this.student_name = student_name;
+	}
+
+	public String getStudent_gender() {
+		return student_gender;
+	}
+
+	public void setStudent_gender(String student_gender) {
+		this.student_gender = student_gender;
+	}
+
+	public Date getStudent_birth() {
+		return student_birth;
+	}
+
+	public void setStudent_birth(Date student_birth) {
+		this.student_birth = student_birth;
+	}
+
+	public String getStudent_email() {
+		return student_email;
+	}
+
+	public void setStudent_email(String student_email) {
+		this.student_email = student_email;
+	}
+
+	public String getStudent_phone() {
+		return student_phone;
+	}
+
+	public void setStudent_phone(String student_phone) {
+		this.student_phone = student_phone;
+	}
+
+	public String getStudent_team() {
+		return student_team;
+	}
+
+	public void setStudent_team(String student_team) {
+		this.student_team = student_team;
+	}
+
+	public String getStudent_position() {
+		return student_position;
+	}
+
+	public void setStudent_position(String student_position) {
+		this.student_position = student_position;
+	}
+
+	public String getStudent_education() {
+		return student_education;
+	}
+
+	public void setStudent_education(String student_education) {
+		this.student_education = student_education;
+	}
+
+	public String getStudent_major() {
+		return student_major;
+	}
+
+	public void setStudent_major(String student_major) {
+		this.student_major = student_major;
+	}
+
+	public String getStudent_status() {
+		return student_status;
+	}
+
+	public void setStudent_status(String student_status) {
+		this.student_status = student_status;
+	}
+
+	public String getStudent_photo() {
+		return student_photo;
+	}
+
+	public void setStudent_photo(String student_photo) {
+		this.student_photo = student_photo;
+	}
+
+	public int getDepartment_idx() {
+		return department_idx;
+	}
+
+	public void setDepartment_idx(int department_idx) {
+		this.department_idx = department_idx;
+	}
 	
-	private int team_id;//팀번호
-	
-	private String team;//팀명
 	
 	
-	
-	public String getGender() {
-		return gender;
-	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public int getIdx() {
-		return idx;
-	}
-
-	public void setIdx(int idx) {
-		this.idx = idx;
-	}
-
-	public int getTeam_id() {
-		return team_id;
-	}
-
-	public void setTeam_id(int team_id) {
-		this.team_id = team_id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Date getBirth() {
-		return birth;
-	}
-
-	public void setBirth(Date birth) {
-		this.birth = birth;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(String department) {
-		this.department = department;
-	}
-
-	public String getPosition() {
-		return position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
-	}
-
-	public String getTeam() {
-		return team;
-	}
-
-	public void setTeam(String team) {
-		this.team = team;
-	}
 	
 	
 }

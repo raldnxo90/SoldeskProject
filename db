@@ -18,3 +18,105 @@ create table student(
 	position varchar2(20),      --직책
     team_id number              --팀 번호
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+과정
+CREATE TABLE department (
+    department_idx    NUMBER NOT NULL,
+    department_name   VARCHAR2(500 BYTE) NOT NULL,
+    department_date   DATE NOT NULL,
+    department_status VARCHAR2(50 CHAR) NOT NULL,
+    instructor_idx    NUMBER NOT NULL,
+    mentor_idx        NUMBER NOT NULL
+);
+
+ALTER TABLE department ADD CONSTRAINT department_pk PRIMARY KEY ( department_idx );
+
+ALTER TABLE department ADD CONSTRAINT department_pk PRIMARY KEY ( departmentt_idx );
+
+CREATE TABLE employee (
+    employee_idx      NUMBER NOT NULL,
+    employee_id       VARCHAR2(50 BYTE) NOT NULL,
+    employee_pass     VARCHAR2(50 BYTE),
+    employee_name     VARCHAR2(50 BYTE),
+    employee_position VARCHAR2(50 BYTE)
+);
+
+ALTER TABLE employee ADD CONSTRAINT employee_pk PRIMARY KEY ( employee_idx );
+
+CREATE TABLE instructor (
+    instructor_idx   NUMBER NOT NULL,
+    instructor_id    VARCHAR2(50 BYTE) NOT NULL,
+    instructor_pass  VARCHAR2(50 BYTE) NOT NULL,
+    instructor_name  VARCHAR2(50 BYTE),
+    instructor_phone VARCHAR2(100 BYTE),
+    instructor_email VARCHAR2(100 BYTE),
+    instructor_photo VARCHAR2(100 BYTE)
+);
+
+ALTER TABLE instructor ADD CONSTRAINT instructor_pk PRIMARY KEY ( instructor_idx );
+
+CREATE TABLE student (
+    student_idx       NUMBER NOT NULL,
+    student_name      VARCHAR2(50 BYTE) NOT NULL,
+    student_gender    VARCHAR2(10 BYTE),
+    student_birth     DATE,
+    student_email     VARCHAR2(100 BYTE),
+    student_phone     VARCHAR2(100 BYTE),
+    department_idx    NUMBER NOT NULL,
+    student_position  VARCHAR2(10 BYTE),
+    student_education VARCHAR2(100 BYTE),
+    student_major     VARCHAR2(10 BYTE),
+    student_status    VARCHAR2(50 BYTE) NOT NULL,
+    student_photo     VARCHAR2(100 BYTE)
+);
+
+ALTER TABLE student ADD CONSTRAINT student_pk PRIMARY KEY ( student_idx );
+
+CREATE TABLE subject (
+    subject_idx   NUMBER NOT NULL,
+    subject_iname VARCHAR2(500 BYTE) NOT NULL
+);
+
+ALTER TABLE subject ADD CONSTRAINT subject_pk PRIMARY KEY ( subject_idx );
+
+CREATE TABLE training (
+    training_idx         NUMBER NOT NULL,
+    training_name        VARCHAR2(500 BYTE) NOT NULL,
+    training_detail      VARCHAR2(500 BYTE) NOT NULL,
+    training_subject_idx NUMBER NOT NULL
+);
+
+ALTER TABLE training ADD CONSTRAINT training_pk PRIMARY KEY ( training_idx );
+
+ALTER TABLE department
+    ADD CONSTRAINT department_employee_fk FOREIGN KEY ( mentor_idx )
+        REFERENCES employee ( employee_idx );
+
+ALTER TABLE department
+    ADD CONSTRAINT department_instructor_fk FOREIGN KEY ( instructor_idx )
+        REFERENCES instructor ( instructor_idx );
+
+ALTER TABLE department
+    ADD CONSTRAINT department_subject_fk FOREIGN KEY ( subject_idx )
+        REFERENCES subject ( subject_idx );
+
+ALTER TABLE student
+    ADD CONSTRAINT student_department_fk FOREIGN KEY ( department_idx )
+        REFERENCES department ( departmentt_idx );
+
+ALTER TABLE training
+    ADD CONSTRAINT training_subject_fk FOREIGN KEY ( training_subject_idx )
+        REFERENCES subject ( subject_idx );
