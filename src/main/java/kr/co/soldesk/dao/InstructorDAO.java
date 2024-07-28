@@ -18,5 +18,10 @@ public class InstructorDAO {
 		
 		return instructorMapper.getInstrudctorList();
 	}
+	
+	public String getInstructorName(int instructor_idx) {
+		
+		return instructorMapper.getInstructorName(instructor_idx);
+	}
 
 }

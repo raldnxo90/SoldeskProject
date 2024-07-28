@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.google.gson.Gson;
+
 import kr.co.soldesk.beans.Department;
 import kr.co.soldesk.beans.Instructor;
 import kr.co.soldesk.beans.Lecture;
@@ -50,6 +52,11 @@ public class AdminController {
 	    model.addAttribute("instructors", instructors);
 	    model.addAttribute("lectures", lectures);
 	    
+	    Gson gson = new Gson();
+	    String instructorListJson = gson.toJson(instructors);
+	    model.addAttribute("instructorListJson", instructorListJson);
+	    
+	    
 	    return "admin/Department/RegisterPage";
 	}
 	
@@ -65,10 +72,6 @@ public class AdminController {
 	public String studentRegister(@ModelAttribute("registerStudent") Student registerStudent, Model model) {
 		
 		List<Department> departments = departmentService.listDepartment();
-		
-		for(Department test : departments){
-			System.out.println(test.getDepartment_idx()+", " +test.getDepartment_name());
-		}
 		
 		model.addAttribute("departments", departments);
 		

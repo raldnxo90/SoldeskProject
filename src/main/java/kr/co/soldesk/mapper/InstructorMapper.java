@@ -8,7 +8,11 @@ import kr.co.soldesk.beans.Instructor;
 
 public interface InstructorMapper {
 	
-	@Select("select instructor_idx, instructor_name from instructor")
+	@Select("select instructor_idx, instructor_name, instructor_sort from instructor")
 	List<Instructor>getInstrudctorList();
+	
+	//강사이름
+	@Select("select instructor_name from instructor where instructor_idx = #{instructor_idx}")
+	String getInstructorName(int instructor_idx);
 
 }

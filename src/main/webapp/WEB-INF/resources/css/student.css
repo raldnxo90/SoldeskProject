@@ -262,12 +262,12 @@ label {
 }
 
 #devBtn {
-    background-color: #4CAF50;
+    background-color: #388E3C;
     color: white;
 }
 
 #netBtn {
-    background-color: #2196F3;
+    background-color: #003366;
     color: white;
 }
 
@@ -276,16 +276,72 @@ label {
 }
 
 .selected#devBtn {
-    background-color: #388E3C;
+    background-color: #800020;
 }
 
 .selected#netBtn {
-    background-color: #1976D2;
+    background-color: #003366;
 }
 
 .form-container {
-    border: 2px solid;
+   
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
+}
+
+
+
+
+.btn {
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, border-color 0.3s;
+    background-color: #f0f0f0;
+    width: 120px; /* 버튼 너비 동일하게 설정 */
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #e0e0e0;
+}
+
+#devBtn {
+    background-color: #e0e0e0;
+    color: white;
+}
+
+#netBtn {
+    background-color: #e0e0e0;
+    color: white;
+}
+
+.selected {
+    /* 선택된 버튼 스타일 */
+}
+
+.form-container input, .form-container select {
+    border: 2px solid transparent; /* 기본 테두리 색상 */
+    transition: border-color 0.3s;
+}
+
+.selected#devBtn ~ .form-container input, 
+.selected#devBtn ~ .form-container select {
+    border-color: #e0e0e0; /* 개발 버튼 선택 시 테두리 색상 */
+}
+
+.selected#netBtn ~ .form-container input, 
+.selected#netBtn ~ .form-container select {
+    border-color: #e0e0e0; /* 네트워크 버튼 선택 시 테두리 색상 */
+}
+
+.form-container {
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    display: none; /* 초기에는 숨김 */
 }

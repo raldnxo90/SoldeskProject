@@ -5,51 +5,20 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.top-bar {
-    width: 100%;
-    color: white;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-sizing: border-box;
-}
-
-.user-links a {
-    color: #003366;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: normal;
-    font-size: 16px;
-}
-
-.user-links a:hover {
-    text-decoration: underline;
-}
-
 .head {
     width: 100%;
-    height: 150px; /* 크기 조정 */
+    height: 100px;
+    text-align: center;
     background-color: #003366;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 36px; /* 크기 조정 */
+    font-size: 24px;
     position: fixed;
-    top: 50px; /* Adjusted for top-bar */
+    top: 0;
     left: 0;
-    z-index: 999;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.title {
-    text-align: center;
+    z-index: 1000;
 }
 
 .nav {
@@ -59,9 +28,9 @@ body {
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
-    top: 200px; /* Adjusted for new header size */
+    top: 100px;
     left: 0;
-    z-index: 998;
+    z-index: 1000;
 }
 
 .nav>ul {
@@ -125,22 +94,17 @@ body {
 }
 
 .main {
+    display: flex;
     width: 100%;
     min-height: 1200px;
     background-color: #f0f0f0;
     padding: 20px;
     box-sizing: border-box;
-    display: flex;
-    padding-top: 270px; /* Adjusted for new header size */
+    padding-top: 170px;
 }
 
-.content {
-    display: flex;
-    width: 100%;
-}
-
-.board {
-    width: 70%;
+.sidebar {
+    width: 20%;
     background-color: white;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -148,12 +112,101 @@ body {
     margin-right: 20px;
 }
 
-.calendar {
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+.sidebar .menu-toggle {
+    display: none;
+}
+
+.sidebar .dropbtn {
+    display: block;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sidebar .dropbtn:hover {
+    background-color: #003366;
+    color: white;
+}
+
+.sidebar .dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background-color: white;
+    padding-left: 20px;
+}
+
+.sidebar .menu-toggle:checked + .dropbtn + .dropdown-content {
+    max-height: 500px; /* Adjust based on expected content height */
+}
+
+.sidebar .dropdown-content a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #003366;
+    font-weight: normal;
+}
+
+.sidebar .dropdown-content a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard {
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat {
     width: 30%;
     background-color: white;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+    text-align: center;
+}
+
+.stat h3 {
+    margin-top: 0;
+}
+
+.board-management, .calendar {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 #calendar {

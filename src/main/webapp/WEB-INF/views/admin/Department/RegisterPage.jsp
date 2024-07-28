@@ -12,13 +12,17 @@
 <script>
     $(document).ready(function(){
         $(".btn").click(function(){
+        	
+        	let instructorsJSON = JSON.parse('${instructorListJson}');
             $(".btn").removeClass("selected");
             $(this).addClass("selected");
 
             if ($(this).attr('id') == "devBtn") {
-                $(".form-container").css("border-color", "#E91E63").show();
+                $(".form-container input, .form-container select").css("border-color", "#800020");
+                $(".form-container").show();
             } else if ($(this).attr('id') == "netBtn") {
-                $(".form-container").css("border-color", "#03A9F4").show();
+                $(".form-container input, .form-container select").css("border-color", "#003366");
+                $(".form-container").show();
             }
         });
 
@@ -26,16 +30,22 @@
     });
 </script>
 </head>
+
+
+
 <body>
     <!-- 상단 메뉴바 -->
     <c:import url="/WEB-INF/views/include/top.jsp" />
     
+    
     <div class="container">
         <h2>과정 등록</h2>
-        <button id="devBtn" class="btn">개발</button>
-        <button id="netBtn" class="btn">네트워크</button>
+        <div class="btn-group">
+            <button id="devBtn" class="btn">개발</button>
+            <button id="netBtn" class="btn">네트워크</button>
+        </div>
         
-        <div class="form-container" style="border: 2px solid; padding: 20px; margin-top: 20px;">
+        <div class="form-container" style="padding: 20px; margin-top: 20px;">
             <form:form action="${root }admin/department/register_pro" modelAttribute="registerDepartment" method="post">
             
                 <form:label path="lecture_idx">과정</form:label>

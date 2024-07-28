@@ -7,12 +7,16 @@ import org.springframework.stereotype.Service;
 
 import kr.co.soldesk.beans.Department;
 import kr.co.soldesk.dao.DepartmentDAO;
+import kr.co.soldesk.dao.InstructorDAO;
 
 @Service
 public class DepartmentService {
 
 	@Autowired
 	private DepartmentDAO departmentDAO;
+	
+	@Autowired
+	private InstructorDAO instructorDAO;
 	
 	public List<Department> listDepartment() {
 		
@@ -26,8 +30,16 @@ public class DepartmentService {
 	
 	public void setDepartment(Department registerDepartment) {
 		
-		//registerDepartment.setDepartment_status("개강 전");
-		//System.out.println(registerDepartment.getDepartment_status());
+		String departName = departmentDAO.nameDepartment(registerDepartment.getDepartment_idx());
+		String className = registerDepartment.getDepartment_class();
+		String instructorName = instructorDAO.getInstructorName(registerDepartment.getInstructor_idx());
+		
+		String metorName = instructorDAO.getInstructorName(registerDepartment.getInstructor_idx());//직원테이블 추가 시 변경
+		String period = 13 + "회차";//강의테이블에 회차 추가 시 변경
+		
+		String departmentName = departName + " " + className + " "+ period + " " + instructorName + "(" + metorName + ")";
+		System.out.println(departmentName);
+		registerDepartment.setDepartment_name(departmentName);
 		
 		departmentDAO.setDepartment(registerDepartment);
 	}

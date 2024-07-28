@@ -10,6 +10,14 @@ public class Instructor {
 	private String instructor_email;	//강사 이메일
 	private String instructor_photo;	//강사 사진
 	
+	private String instructor_sort;		//강사 분류
+	
+	public String getInstructor_sort() {
+		return instructor_sort;
+	}
+	public void setInstructor_sort(String instructor_sort) {
+		this.instructor_sort = instructor_sort;
+	}
 	public int getInstructor_idx() {
 		return instructor_idx;
 	}

@@ -75,13 +75,7 @@ public class StudentController {
 	
 	@PostMapping("/modify_pro")
 	private String modify_pro(@ModelAttribute("modifyStudent") Student modifyStudent) {
-		
-		System.out.println(modifyStudent.getStudent_status());
-		System.out.println(modifyStudent.getStudent_email());
-		System.out.println(modifyStudent.getStudent_phone());
-		System.out.println(modifyStudent.getStudent_team());
-		System.out.println(modifyStudent.getStudent_position());
-		
+
 		studentService.modifyStudent(modifyStudent);
 		
 		return "Student/Modify_successPage";
