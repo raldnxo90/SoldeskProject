@@ -9,6 +9,7 @@ public class Instructor {
 	private String instructor_phone;	//강사 연락처
 	private String instructor_email;	//강사 이메일
 	private String instructor_photo;	//강사 사진
+	
 	public int getInstructor_idx() {
 		return instructor_idx;
 	}

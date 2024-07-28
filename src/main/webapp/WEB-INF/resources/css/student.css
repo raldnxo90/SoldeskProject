@@ -177,6 +177,7 @@ label {
 	width: 100%;
 	font-weight: bold;
 }
+
 /* List Page */
 .container select, .container input {
 	width: 100%;
@@ -242,4 +243,49 @@ label {
     display: flex;
     flex-direction: row;
     gap: 5px; /* 각 라디오 버튼 사이의 간격을 조절 */
+}
+
+/* 추가된 CSS */
+.btn {
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, border-color 0.3s;
+    background-color: #f0f0f0;
+}
+
+.btn:hover {
+    background-color: #e0e0e0;
+}
+
+#devBtn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#netBtn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.selected {
+    border-color: #FF5722;
+}
+
+.selected#devBtn {
+    background-color: #388E3C;
+}
+
+.selected#netBtn {
+    background-color: #1976D2;
+}
+
+.form-container {
+    border: 2px solid;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
 }

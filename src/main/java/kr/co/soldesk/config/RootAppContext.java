@@ -14,6 +14,7 @@ import org.springframework.context.annotation.PropertySource;
 
 import kr.co.soldesk.mapper.DepartmentMapper;
 import kr.co.soldesk.mapper.InstructorMapper;
+import kr.co.soldesk.mapper.LectureMapper;
 import kr.co.soldesk.mapper.StudentMapper;
 
 //프로젝트 작업시 사용할 bean을 정의하는 클래스, 웹과 관련 빈을 제외한 빈들을 관리 
@@ -70,6 +71,12 @@ public class RootAppContext {
 	@Bean
 	public MapperFactoryBean<InstructorMapper> getInstructorMapper(SqlSessionFactory factory) throws Exception{
 		MapperFactoryBean<InstructorMapper> factoryBean = new MapperFactoryBean<InstructorMapper>(InstructorMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	@Bean
+	public MapperFactoryBean<LectureMapper> getLectureMapper(SqlSessionFactory factory) throws Exception{
+		MapperFactoryBean<LectureMapper> factoryBean = new MapperFactoryBean<LectureMapper>(LectureMapper.class);
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}

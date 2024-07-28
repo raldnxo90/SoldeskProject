@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.soldesk.beans.Department;
 import kr.co.soldesk.beans.Instructor;
+import kr.co.soldesk.beans.Lecture;
 import kr.co.soldesk.beans.Student;
 import kr.co.soldesk.service.DepartmentService;
 import kr.co.soldesk.service.InstructorService;
+import kr.co.soldesk.service.LectureService;
 import kr.co.soldesk.service.StudentService;
 
 @Controller
@@ -30,6 +32,9 @@ public class AdminController {
 	@Autowired
 	private StudentService studentService;
 	
+	@Autowired
+	private LectureService lectureService;
+	
 	@GetMapping("/main")
 	public String adminMain() {
 		
@@ -40,9 +45,10 @@ public class AdminController {
 	public String departmentRegister(@ModelAttribute("registerDepartment") Department registerDepartment, Model model) {
 		
 	    List<Instructor> instructors = instructorService.getInstrudctorList();
-	    
+	    List<Lecture> lectures = lectureService.getLectureList();
 	    
 	    model.addAttribute("instructors", instructors);
+	    model.addAttribute("lectures", lectures);
 	    
 	    return "admin/Department/RegisterPage";
 	}

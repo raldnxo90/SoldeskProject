@@ -11,8 +11,21 @@ public class Department {
 	
 	private int instructor_idx;			//강사
 	private int mentor_idx;				//부담임
+	private int lecture_idx;			//강의
+	private String department_class;	//강의장
 	
-	
+	public int getLecture_idx() {
+		return lecture_idx;
+	}
+	public void setLecture_idx(int lecture_idx) {
+		this.lecture_idx = lecture_idx;
+	}
+	public String getDepartment_class() {
+		return department_class;
+	}
+	public void setDepartment_class(String department_class) {
+		this.department_class = department_class;
+	}
 	public int getDepartment_idx() {
 		return department_idx;
 	}
@@ -49,7 +62,6 @@ public class Department {
 	public void setMentor_idx(int mentor_idx) {
 		this.mentor_idx = mentor_idx;
 	}
-	
 	
 	
 }
