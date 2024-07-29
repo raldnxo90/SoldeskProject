@@ -2,12 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:set var="root" value="${pageContext.request.contextPath }/" />
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="${root}css/top.css" rel="stylesheet" />
 </head>
-
 
 <div class="top-bar">
     <div class="user-links">

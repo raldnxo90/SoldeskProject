@@ -12,12 +12,8 @@
 </head>
 <body>
 
-
-
     <!-- 상단 메뉴바 -->
     <c:import url="/WEB-INF/views/include/top.jsp" />
-
-
 
     <div class="main">
         <div class="content">

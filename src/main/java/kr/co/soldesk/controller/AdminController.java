@@ -37,6 +37,8 @@ public class AdminController {
 	@Autowired
 	private LectureService lectureService;
 	
+	Gson gson = new Gson();
+	
 	@GetMapping("/main")
 	public String adminMain() {
 		
@@ -52,10 +54,11 @@ public class AdminController {
 	    model.addAttribute("instructors", instructors);
 	    model.addAttribute("lectures", lectures);
 	    
-	    Gson gson = new Gson();
 	    String instructorListJson = gson.toJson(instructors);
 	    model.addAttribute("instructorListJson", instructorListJson);
 	    
+	    String lectureJson = gson.toJson(lectures);
+	    model.addAttribute("lectureJson", lectureJson);
 	    
 	    return "admin/Department/RegisterPage";
 	}
