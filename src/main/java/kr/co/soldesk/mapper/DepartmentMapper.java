@@ -25,7 +25,7 @@ public interface DepartmentMapper {
 	//특정 분야별 과정, 강사 목록
     @Select("select d.department_idx, d.department_name, i.instructor_name "
     		+ "from department d, instructor i "
-    		+ "where d.instructor_idx = i.insturctor_idx")
+    		+ "where d.INSTRUCTOR_IDX = i.INSTRUCTOR_IDX")
     List<Department> getlistDepartment();
     
 }

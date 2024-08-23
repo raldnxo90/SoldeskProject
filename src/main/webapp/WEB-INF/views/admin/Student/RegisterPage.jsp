@@ -49,8 +49,8 @@
                 <form:option value="전공" label="전공"/>
                 <form:option value="비전공" label="비전공"/>
             </form:select>
-            
-<!-- 		<script>
+<%--             
+ 		<script>
 			    var departments = [];
 			
 			    <c:forEach let="depart" items="${departments}">
@@ -61,8 +61,8 @@
 			    </c:forEach>
 			
 			    console.log(departments);
-			</script> -->
-
+			</script> 
+--%> 
 			<form:label path="department_idx">강의 선택</form:label>
 			<form:select path="department_idx" required="required">
 				<c:forEach var="depart" items="${departments }">

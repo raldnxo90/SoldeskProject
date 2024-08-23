@@ -10,12 +10,16 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.context.annotation.SessionScope;
 
+import kr.co.soldesk.beans.User;
 import kr.co.soldesk.mapper.DepartmentMapper;
 import kr.co.soldesk.mapper.InstructorMapper;
 import kr.co.soldesk.mapper.LectureMapper;
 import kr.co.soldesk.mapper.StudentMapper;
+import kr.co.soldesk.mapper.UserMapper;
 
 //프로젝트 작업시 사용할 bean을 정의하는 클래스, 웹과 관련 빈을 제외한 빈들을 관리 
 @Configuration
@@ -36,6 +40,13 @@ public class RootAppContext {
     @Value("${db.password}")
     private String db_password;
     
+    @Bean(name = "loginUserBean")
+    @SessionScope
+    @Lazy
+    public User loginUserBean() {
+    	
+    	return new User();
+    }
 
     @Bean
     public BasicDataSource dataSource() {
@@ -77,6 +88,12 @@ public class RootAppContext {
 	@Bean
 	public MapperFactoryBean<LectureMapper> getLectureMapper(SqlSessionFactory factory) throws Exception{
 		MapperFactoryBean<LectureMapper> factoryBean = new MapperFactoryBean<LectureMapper>(LectureMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	@Bean
+	public MapperFactoryBean<UserMapper> getUserMapper(SqlSessionFactory factory) throws Exception{
+		MapperFactoryBean<UserMapper> factoryBean = new MapperFactoryBean<UserMapper>(UserMapper.class);
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}

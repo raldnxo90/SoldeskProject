@@ -5,7 +5,9 @@
 <meta charset="UTF-8">
 <link href="${root}css/top.css" rel="stylesheet" />
 </head>
-
+<script>
+	console.log(${loginUserBean.user_login})
+</script>
 <div class="top-bar">
     <div class="user-links">
         <a href="${root}admin/main">관리자 페이지</a>
