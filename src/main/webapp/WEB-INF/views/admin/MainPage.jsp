@@ -55,6 +55,7 @@
                 <li><a href="${root}admin/settings">설정</a></li>
             </ul>
         </div>
+        
         <div class="content">
             <div class="dashboard">
                 <h2>대시보드</h2>

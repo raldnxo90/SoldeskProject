@@ -29,4 +29,9 @@ public class DepartmentDAO {
 		departmentMapper.setDepartment(registerDepartment);
 	}
 	
+	public List<Department> getListDepartment(){
+		
+		return departmentMapper.getlistDepartment();
+	}
+	
 }

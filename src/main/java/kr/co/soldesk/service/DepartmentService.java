@@ -43,4 +43,12 @@ public class DepartmentService {
 		
 		departmentDAO.setDepartment(registerDepartment);
 	}
+	
+	public List<Department> getListDepartment(){
+		
+		return departmentDAO.getListDepartment();
+	}
+	
+	
+	
 }

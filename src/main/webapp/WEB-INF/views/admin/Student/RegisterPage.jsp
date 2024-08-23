@@ -50,10 +50,10 @@
                 <form:option value="비전공" label="비전공"/>
             </form:select>
             
-			<script>
-			    let departments = [];
+<!-- 		<script>
+			    var departments = [];
 			
-			    <c:forEach var="depart" items="${departments}">
+			    <c:forEach let="depart" items="${departments}">
 			        departments.push({
 			            department_idx: "${depart.department_idx}",
 			            department_name: "${depart.department_name}"
@@ -61,8 +61,8 @@
 			    </c:forEach>
 			
 			    console.log(departments);
-			</script>
- 			
+			</script> -->
+
 			<form:label path="department_idx">강의 선택</form:label>
 			<form:select path="department_idx" required="required">
 				<c:forEach var="depart" items="${departments }">

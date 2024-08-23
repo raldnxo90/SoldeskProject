@@ -14,6 +14,15 @@ public class Department {
 	private int lecture_idx;			//강의
 	private String department_class;	//강의장
 	
+	private String instructor_name;		//강사이름
+
+	
+	public String getInstructor_name() {
+		return instructor_name;
+	}
+	public void setInstructor_name(String instructor_name) {
+		this.instructor_name = instructor_name;
+	}
 	public int getLecture_idx() {
 		return lecture_idx;
 	}
