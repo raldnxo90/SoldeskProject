@@ -18,6 +18,8 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest request) {
 		
+		System.out.println(loginUserBean.getUser_id());
+		
 		return "redirect:/main";
 	}
 }

@@ -43,6 +43,4 @@ public class User {
 		this.user_login = user_login;
 	}
 	
-
-	
 }

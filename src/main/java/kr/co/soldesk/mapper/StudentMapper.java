@@ -11,6 +11,7 @@ import kr.co.soldesk.beans.Student;
 
 public interface StudentMapper {
 	
+	//학생 등록
     @Insert("INSERT INTO student (student_idx, student_name, student_gender, student_birth, student_email, student_phone, student_education, student_major, department_idx) "
             + "VALUES (std_seq.nextval, "
             + "#{student_name}, "

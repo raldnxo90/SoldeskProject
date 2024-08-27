@@ -44,6 +44,14 @@ public class AdminController {
 		
 		return "admin/MainPage";
 	}
+	
+	@GetMapping("/not_admin")
+	public String adminNot() {
+		
+		System.out.println("관리자 아님");
+		
+		return "admin/not_admin";
+	}
 
 	@GetMapping("/department/register")
 	public String departmentRegister(@ModelAttribute("registerDepartment") Department registerDepartment, Model model) {

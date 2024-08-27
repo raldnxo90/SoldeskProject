@@ -18,7 +18,7 @@ public class MainController {
 	private String main(Model model) {
 		
 		System.out.println("메인 페이지");
-		loginUserBean.setUser_login(true);//임시 로그인 허용
+		//loginUserBean.setUser_login(true);//임시 로그인 허용
 		model.addAttribute("loginUserBean", loginUserBean);
 		
 		return "/MainPage";

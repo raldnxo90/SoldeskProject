@@ -2,6 +2,8 @@ package kr.co.soldesk.beans;
 
 import java.sql.Date;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Student {
 
 	private int student_idx;			//학생기본키
@@ -17,11 +19,56 @@ public class Student {
 	private String student_status;		//학생상태
 	private String student_photo;		//학생사진
 	
+	@NotEmpty(message = "아이디를 입력하세요!!")
+	private String student_id;
+	private String student_pass;
+	
 	private int department_idx;			//과정번호
+	
+	private boolean check_email;		//회원가입 위한 이메일 체크
+	
+	private Student() {
+		
+		this.check_email = false;
+	}
+	
+	public boolean isCheck_email() {
+		return check_email;
+	}
+
+
+	public void setCheck_email(boolean check_email) {
+		this.check_email = check_email;
+	}
+
 
 	public int getStudent_idx() {
 		return student_idx;
 	}
+	
+	public String getStudent_id() {
+		return student_id;
+	}
+
+
+
+	public void setStudent_id(String student_id) {
+		this.student_id = student_id;
+	}
+
+
+
+	public String getStudent_pass() {
+		return student_pass;
+	}
+
+
+
+	public void setStudent_pass(String student_pass) {
+		this.student_pass = student_pass;
+	}
+
+
 
 	public void setStudent_idx(int student_idx) {
 		this.student_idx = student_idx;

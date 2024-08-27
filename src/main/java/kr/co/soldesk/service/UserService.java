@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.soldesk.beans.Student;
 import kr.co.soldesk.beans.User;
 import kr.co.soldesk.dao.UserDAO;
 
@@ -30,7 +31,15 @@ public class UserService {
 		}else {
 			return false;
 		}
-		
 	}
 	
+	public void joinStudent(Student joinUserBean) {
+		
+		userDAO.joinStudent(joinUserBean);
+	}
+	
+	public int confirmStudent(String user_email) {
+		
+		return userDAO.confirmStudent(user_email);
+	}
 }

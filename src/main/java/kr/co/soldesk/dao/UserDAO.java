@@ -3,6 +3,7 @@ package kr.co.soldesk.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.soldesk.beans.Student;
 import kr.co.soldesk.beans.User;
 import kr.co.soldesk.mapper.UserMapper;
 
@@ -17,4 +18,13 @@ public class UserDAO {
 		return userMapper.getUserBean(loginUserBean);
 	}
 	
+	public int confirmStudent(String user_email) {
+		
+		return userMapper.confirmStudent(user_email);
+	}
+	
+	public void joinStudent(Student joinUserBean) {
+		
+		userMapper.joinStudent(joinUserBean);
+	}
 }

@@ -1,5 +1,7 @@
 package kr.co.soldesk.config;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -9,9 +11,16 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import kr.co.soldesk.beans.User;
+import kr.co.soldesk.interceptor.AdminInterceptor;
+import kr.co.soldesk.interceptor.TopInterceptor;
+import kr.co.soldesk.interceptor.loginInterceptor;
 
 @Configuration // Spring MVC 프로젝트에 관련된 설정을 하는 클래스
 @EnableWebMvc // Controller 어노테이션이 셋팅되어 있는 클래스를 Controller로 등록
@@ -33,6 +42,9 @@ public class ServletAppContext implements WebMvcConfigurer {
     
     @Value("${db.password}")
     private String db_password;
+    
+	@Resource(name = "loginUserBean")
+	private User loginUserBean;
     
     //데이터베이스 접속 정보 관리 Bean
     @Bean
@@ -67,4 +79,22 @@ public class ServletAppContext implements WebMvcConfigurer {
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 		registry.addResourceHandler("/**").addResourceLocations("/WEB-INF/resources/");
 	}
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		
+		loginInterceptor loginInterceptor = new loginInterceptor(loginUserBean);
+		InterceptorRegistration reg1 = registry.addInterceptor(loginInterceptor);
+		reg1.addPathPatterns("/user/logout");
+		
+		AdminInterceptor adminInterceptor = new AdminInterceptor(loginUserBean);
+		InterceptorRegistration reg2 = registry.addInterceptor(adminInterceptor);
+		reg2.addPathPatterns("/admin/*");
+		reg2.excludePathPatterns("/admin/not_admin");
+		
+		TopInterceptor topInterceptor = new TopInterceptor(loginUserBean);
+		InterceptorRegistration reg3 = registry.addInterceptor(topInterceptor);
+		reg3.addPathPatterns("/**");
+		
+	}
+	
 }

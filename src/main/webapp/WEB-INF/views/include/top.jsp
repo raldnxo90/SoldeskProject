@@ -10,10 +10,21 @@
 </script>
 <div class="top-bar">
     <div class="user-links">
-        <a href="${root}admin/main">관리자 페이지</a>
-        <a href="${root}login">로그인</a>
-        <a href="${root}logout">로그아웃</a>
-        <a href="${root}mypage">마이페이지</a>
+    
+<c:choose>
+
+    <c:when test="${loginUserBean.user_login == true }">
+        <a href="${root}user/logout">로그아웃</a>
+        <a href="${root}user/mypage">마이페이지</a>
+        <c:if test="${loginUserBean.user_id == 'admin'}">
+            <a href="${root}admin/main">관리자 페이지</a>
+        </c:if>
+    </c:when>
+    <c:otherwise>
+        <a href="${root}user/login">로그인</a>
+    </c:otherwise>
+</c:choose>
+
     </div>
 </div>
 
