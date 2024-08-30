@@ -7,14 +7,20 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+<style>
+
+	
+</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	function confirmStudent(){
 		let confimEmail = $("#confimEmail").val();
 		let check_email = $("#check_email").val();
-		let student_idx = $("#student_idx").val();
+		//let student_idx = $("#student_idx").val();
+		
 		console.log(confimEmail);
 		console.log(check_email);
+
 		
 		if(confimEmail.length == 0){
 			
@@ -27,11 +33,16 @@
 				url : '${root}user/confirmStudent?email='+confimEmail,
 				type : 'get',
 				success : function(result){
-					if(result != null){
+					
+					console.log(result.joinCheck)
+					
+					if(result.joinCheck == true){
 						console.log(result)
 						alert("회원가입 가능한 학생입니다")
 						$("#check_email").val(true);
 						$("#student_idx").val(result);
+						$("#student_id").prop("readonly", false);
+						$("#student_pass").prop("readonly", false);
 						
 					}else{
 						console.log(result)
@@ -54,9 +65,9 @@
 	<form:form action="join_pro" modelAttribute="joinUserBean">
 		<form:hidden path="student_idx"/>
 		<form:hidden path="check_email"/>
-		아이디 : <form:input path="student_id"/> <br />
+		아이디 : <form:input path="student_id" readonly="true"/> <br />
 		<form:errors path="student_id" style="color:red;" ></form:errors>
-		패스워드 : <form:password path="student_pass"/> <br />
+		패스워드 : <form:password path="student_pass" readonly="true"/> <br />
 		<button type="submit">회원가입</button>
 	</form:form>
 </body>

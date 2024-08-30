@@ -15,10 +15,10 @@ public interface UserMapper {
 	User getUserBean(User loginUserBean);
 	
 	//학생 조회
-	@Select("select student_idx "
+	@Select("select student_idx, student_id "
 			+ "from student "
 			+ "where student_email = #{user_email}")
-	int confirmStudent(String user_email);
+	Student confirmStudent(String user_email);
 	
 	//학생 가입
 	@Update("update student "

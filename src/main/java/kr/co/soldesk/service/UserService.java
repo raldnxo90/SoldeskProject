@@ -37,9 +37,39 @@ public class UserService {
 		
 		userDAO.joinStudent(joinUserBean);
 	}
-	
-	public int confirmStudent(String user_email) {
+	/*
+	public Student confirmStudent(String user_email) {
 		
-		return userDAO.confirmStudent(user_email);
+		Student confirmStudent = new Student();
+		confirmStudent = userDAO.confirmStudent(user_email);
+		//System.out.println(confirmStudent.getStudent_id());
+		
+		if(confirmStudent.getStudent_id()!=null) {
+			confirmStudent.setJoinCheck(false);
+			return confirmStudent;
+		}else {
+			System.out.println("가입이 가능한 학생");
+			confirmStudent.setJoinCheck(true);
+			return confirmStudent;
+		}
+	}*/
+	public Student confirmStudent(String user_email) {
+
+	    Student confirmStudent = userDAO.confirmStudent(user_email);
+
+	    if (confirmStudent == null || confirmStudent.getStudent_id() == null) {
+	        // null이거나 이미 가입된 학생일 경우
+	        if (confirmStudent == null) {
+	            confirmStudent = new Student();
+	        }
+	        confirmStudent.setJoinCheck(true);
+	        return confirmStudent;
+	    } else {
+	        // 가입이 가능한 학생일 경우
+	        confirmStudent.setJoinCheck(false);
+	        return confirmStudent;
+	    }
 	}
 }
+
+

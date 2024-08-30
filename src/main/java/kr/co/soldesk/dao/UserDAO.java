@@ -18,7 +18,7 @@ public class UserDAO {
 		return userMapper.getUserBean(loginUserBean);
 	}
 	
-	public int confirmStudent(String user_email) {
+	public Student confirmStudent(String user_email) {
 		
 		return userMapper.confirmStudent(user_email);
 	}

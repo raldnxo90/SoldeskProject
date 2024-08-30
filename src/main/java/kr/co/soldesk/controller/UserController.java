@@ -81,8 +81,20 @@ public class UserController {
 	
 	@ResponseBody
 	@GetMapping("/confirmStudent")
-	private int confirmStudent(@RequestParam("email") String email) {
+	private Student confirmStudent(@RequestParam("email") String email) {
 		
-		return userService.confirmStudent(email);
+		Student checkStudent = userService.confirmStudent(email);
+		
+		return checkStudent;
+		/*if(checkStudent == null) {
+			
+			System.out.println("가입불가");
+			System.out.println("------");
+			return null;
+		}else {
+			System.out.println("가입가능");
+			System.out.println("------");
+			return checkStudent;
+		}*/
 	}
 }

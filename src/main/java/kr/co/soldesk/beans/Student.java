@@ -23,12 +23,15 @@ public class Student {
 	private String student_id;
 	private String student_pass;
 	
+	private boolean joinCheck;
+	
 	private int department_idx;			//과정번호
 	
 	private boolean check_email;		//회원가입 위한 이메일 체크
 	
-	private Student() {
+	public Student() {
 		
+		this.student_id = null;
 		this.check_email = false;
 	}
 	
@@ -168,6 +171,14 @@ public class Student {
 
 	public void setDepartment_idx(int department_idx) {
 		this.department_idx = department_idx;
+	}
+
+	public boolean isJoinCheck() {
+		return joinCheck;
+	}
+
+	public void setJoinCheck(boolean joinCheck) {
+		this.joinCheck = joinCheck;
 	}
 	
 	

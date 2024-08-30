@@ -12,7 +12,6 @@
     <div class="user-links">
     
 <c:choose>
-
     <c:when test="${loginUserBean.user_login == true }">
         <a href="${root}user/logout">로그아웃</a>
         <a href="${root}user/mypage">마이페이지</a>
@@ -21,6 +20,7 @@
         </c:if>
     </c:when>
     <c:otherwise>
+        <a href="${root}user/join">회원가입</a>
         <a href="${root}user/login">로그인</a>
     </c:otherwise>
 </c:choose>
